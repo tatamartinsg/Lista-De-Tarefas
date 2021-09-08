@@ -32,11 +32,31 @@ class Cadastro {
                     // console.log(res)
                 }
             })
-        }
+        } 
+    }
 
+    lista(res){
+        const sql = 'SELECT * FROM cadastroTarefa'
 
-        
-
+        conexao.query(sql, (erro, resultados) => {
+            if(erro){
+                console.log("Lista erro:",erro)
+            }
+            else{
+                console.log("Deu certo lista: ",resultados)
+            }
+        })
+    }
+    buscaPorId(id,res){
+        const sql = `SELECT * FROM cadastroTarefa WHERE id=${id}`
+        conexao.query(sql,(erro,resultados) => {
+            if(erro){
+                console.log("Erro ID = ",erro)
+            }
+            else{
+                console.log('ID deu certo: ',resultados)
+            }
+        })
     }
 }
 
