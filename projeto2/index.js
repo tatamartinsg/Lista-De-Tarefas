@@ -5,7 +5,6 @@ const Tabelas = require('./infraestrutura/createTable')
 conexao.connect(erro => {
     if(erro){
         console.log(erro)
-        console.log(' entrou if')
     }
     else{
         Tabelas.init(conexao)
@@ -17,7 +16,6 @@ conexao.connect(erro => {
         })
 
         console.log('Conectado com sucesso!')
-        console.log(' entrou else')
     }
 })
 

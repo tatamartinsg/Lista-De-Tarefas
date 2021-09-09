@@ -32,7 +32,10 @@ const deletarTarefa = (evento) => {
     pegarElementoPai.remove();
     return pegarEventoDeleta;
 }
+var i = 0
 const criarTarefa = (evento) =>{
+    
+    console.log(i++)
     document.querySelector('form').submit()
     evento.preventDefault();
     const $acessar_ul = document.querySelector('[data-ul]');

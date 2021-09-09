@@ -1,6 +1,7 @@
 const conexao = require('../infraestrutura/conexao')
 
 class Cadastro {
+
     adicionaCadastro(cadastro,res){
         const clienteEhvalido = cadastro.password.length >= 5
 
@@ -21,7 +22,7 @@ class Cadastro {
         }
         else{
             console.log("Enviando para o banco de dados com sucesso!")
-            const sql = `INSERT INTO cadastroTarefa SET ? `
+            const sql = `INSERT INTO cadastroTarefa SET ? ;`
 
             conexao.query(sql, cadastro, (erro,resultados) => {
                 if(erro){
