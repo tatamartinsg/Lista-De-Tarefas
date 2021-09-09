@@ -22,7 +22,7 @@ class Cadastro {
         }
         else{
             console.log("Enviando para o banco de dados com sucesso!")
-            const sql = `INSERT INTO cadastroTarefa SET ? ;`
+            const sql = `INSERT INTO cadastroEmail SET ? ;`
 
             conexao.query(sql, cadastro, (erro,resultados) => {
                 if(erro){
@@ -37,7 +37,7 @@ class Cadastro {
     }
 
     lista(res){
-        const sql = 'SELECT * FROM cadastroTarefa'
+        const sql = 'SELECT * FROM cadastroEmail'
 
         conexao.query(sql, (erro, resultados) => {
             if(erro){
@@ -49,7 +49,7 @@ class Cadastro {
         })
     }
     buscaPorId(id,res){
-        const sql = `SELECT * FROM cadastroTarefa WHERE id=${id}`
+        const sql = `SELECT * FROM cadastroEmail WHERE id=${id}`
         conexao.query(sql,(erro,resultados) => {
             if(erro){
                 console.log("Erro ID = ",erro)

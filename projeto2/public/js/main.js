@@ -4,7 +4,7 @@ const BotaoConcluir = () =>{
     const botaoConclui = document.createElement('button');
     botaoConclui.classList.add('check-button');
     
-    botaoConclui.innerHTML = 'Concluir Tarefa'
+    botaoConclui.innerHTML = 'Concluir'
     botaoConclui.addEventListener('click', tarefaConcluida)
     return botaoConclui;
  }
@@ -18,7 +18,7 @@ const BotaoConcluir = () =>{
 }    //============= Criar botao deleta =============//
 const BotaoDeletar = () => {
     const botaoDeleta = document.createElement('button');
-    botaoDeleta.innerText = 'Deletar tarefa';
+    botaoDeleta.innerText = 'Deletar';
     botaoDeleta.classList.add('delete-button');
     botaoDeleta.addEventListener('click', deletarTarefa)
 

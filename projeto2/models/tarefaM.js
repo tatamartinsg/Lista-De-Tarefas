@@ -4,93 +4,46 @@ class Tarefa{
     teste(tarefa){
             
             console.log('i:',i+=1)
-            const sql = `SELECT * FROM cadastroTarefa where id = (SELECT MAX(id) FROM cadastroTarefa);`
+            const sql = `SELECT * FROM cadastroEmail where id = (SELECT MAX(id) FROM cadastroEmail);`
                 console.log(sql)
                 conexao.query(sql, (erro,resultados) => {
                     if(erro){
                         console.log(erro)
                         console.log(`Tabela${i} já existe!`)
-
                     }
                     else{
-                        console.log("Pegar dados da ultima pessoa inserida: ",Object.assign({},resultados))
-                        const ultimo_id = resultados[0].id
-                        console.log("id da ultima pessoa inserida:",ultimo_id)
-
-                        const sql3 = `ALTER TABLE cadastroTarefa ADD tarefa${i} varchar(60);`
-                        conexao.query(sql3, (erro,resultados) => {
+                        const ultimo_id_email = resultados[0].id
+                        const sql3 = `INSERT INTO cadastroTarefas SET codigo_id = ${ultimo_id_email}`
+                        conexao.query(sql3, (erro,results2) => {
                             if(erro){
-                                // console.log("Erro ID update = ",erro)
-                                console.log(`Tabela${i} já existe!`)
-                                const sql4 = `UPDATE cadastroTarefa SET tarefa${i} = '${tarefa}' WHERE id = ${ultimo_id}`
-                                conexao.query(sql4, (erro,resultadosss) => {
-                                    if(erro){
-                                        console.log("Erro ID update = ",erro)
-                                    }
-                                    else{
-                                        console.log('UPDATE DE UCERTO ',resultadosss)
-                                    }
-                            
+                                console.log("Erro INSERT update = ",erro)
+                            }
+                           else{
+                            const sql4 = `SELECT * FROM cadastroTarefas where id = (SELECT MAX(id) FROM cadastroTarefas);`
+                            conexao.query(sql4, (erro,results4) => {
+                                if(erro){
+                                    console.log(erro)
+                                    console.log(`Tabela${i} já existe!`)
+                                }
+                                else{
+                                    var ultimo_id_tarefa = results4[0].id
+                                    const sql2 = `UPDATE cadastroTarefas SET tarefas = '${tarefa}' WHERE id = ${ultimo_id_tarefa};`
+                                    conexao.query(sql2, (erro,results) => {
+                                        if(erro){
+                                            console.log("Erro ID update = ",erro)
+                                                }
+                                        else{
+                                            console.log('UPDATE DEU CERTO ',results4)
+                                            }
+                                    })
+                                  }
                                 })
                             }
-                            else{
-                                console.log("Adicionou a nova coluna")
-                                const sql4 = `UPDATE cadastroTarefa SET tarefa${i} = '${tarefa}' WHERE id = ${ultimo_id}`
-                                conexao.query(sql4, (erro,resultadosss) => {
-                                    if(erro){
-                                        console.log("Erro ID update = ",erro)
-                                    }
-                                    else{
-                                        console.log('UPDATE DE UCERTO ',resultadosss)
-                                    }
-                            
-                                })
-
-                            }
-                                
                         })
-
                     }
                 })
-
-    }
-    }
-// class Tarefa {
-//     lista(res){
-//         const sql = 'SELECT * FROM cadastroTarefa'
-
-//             conexao.query(sql, (erro, resultados) => {
-//                 if(erro){
-//                     console.log("Lista erro:",erro)
-//                 }
-//                 else{
-//                     console.log("Deu certo lista tarefa: ",resultados)
-//                 }
-//             })
-//     }
-//     buscaPorId(tarefa,id){
-//         console.log('tarefa e id:',tarefa,id)
-//         const sql = `SELECT MAX(id) FROM cadastroTarefa`
-//         conexao.query(sql,(erro,resultados) => {
-//             if(erro){
-//                 console.log("Erro ID = ",erro)
-//             }
-//             else{
-//                 console.log('ID deu certo: ',resultados)
-//                 return resultados
-//             }
-//         })
-//         const sql2 = `UPDATE cadastroTarefa SET tarefaUM = "TESTE2" WHERE id = ${sql}`
-//         conexao.query(sql2, (erro,resultados) => {
-//             if(erro){
-//                 console.log("Erro ID update = ",erro)
-//             }
-//             else{
-//                 console.log('UPDATE DE UCERTO ',resultados)
-//             }
-    
-//         })
-//     }
-// }
+        
+    }    
+}
 
 module.exports = new Tarefa

@@ -8,20 +8,46 @@ class Tarefa{
                 console.log(sql)
                 conexao.query(sql, (erro,resultados) => {
                     if(erro){
-                        console.log("erro:",erro)
+                        console.log(erro)
+                        console.log(`Tabela${i} já existe!`)
+
                     }
                     else{
                         console.log("Pegar dados da ultima pessoa inserida: ",Object.assign({},resultados))
-                        console.log("id da ultima pessoa inserida:",resultados[0].id)
-                        const sql3 = `UPDATE cadastroTarefa SET tarefaUM = '${tarefa}' WHERE id = ${resultados[0].id}`
+                        const ultimo_id = resultados[0].id
+                        console.log("id da ultima pessoa inserida:",ultimo_id)
+
+                        const sql3 = `ALTER TABLE cadastroTarefa ADD tarefa${i} varchar(60);`
                         conexao.query(sql3, (erro,resultados) => {
                             if(erro){
-                                console.log("Erro ID update = ",erro)
+                                // console.log("Erro ID update = ",erro)
+                                console.log(`Tabela${i} já existe!`)
+                                const sql4 = `UPDATE cadastroTarefa SET tarefa${i} = '${tarefa}' WHERE id = ${ultimo_id}`
+                                conexao.query(sql4, (erro,resultadosss) => {
+                                    if(erro){
+                                        console.log("Erro ID update = ",erro)
+                                    }
+                                    else{
+                                        console.log('UPDATE DEU CERTO ',resultadosss)
+                                    }
+                            
+                                })
                             }
                             else{
-                                console.log('UPDATE DE UCERTO ',resultados)
+                                console.log("Adicionou a nova coluna")
+                                const sql4 = `UPDATE cadastroTarefa SET tarefa${i} = '${tarefa}' WHERE id = ${ultimo_id}`
+                                conexao.query(sql4, (erro,resultadosss) => {
+                                    if(erro){
+                                        console.log("Erro ID update = ",erro)
+                                    }
+                                    else{
+                                        console.log('UPDATE DE UCERTO ',resultadosss)
+                                    }
+                            
+                                })
+
                             }
-                    
+                                
                         })
 
                     }
