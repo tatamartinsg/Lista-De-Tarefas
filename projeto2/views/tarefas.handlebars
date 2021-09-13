@@ -1,19 +1,30 @@
+{{!-- {{#each erros}}
+  <div class="alert alert-danger">{{texto}}</div>
 
+  {{else}}
+
+{{/each}}
+{{#each}} --}}
 <div class="app">
     <div class="todo-list">
       <h1 class="title">Lista de Tarefas</h1>
       
-      <form class="form" action="/add-tarefa" method="POST">
+      <form class="form1994" action="/tarefas/add-tarefa" method="POST">
         <input name="tarefaUM" class="form-input" type="text" data-form-input>
-        <button class="form-button" data-form-button> Novo Item </button>
-
+        <a href="/tarefas/add-tarefa"><button class="form-button" data-form-button> Novo Item </button></a>
       </form>
+      
         
         <ul class="list" data-ul>
             <li class="task" data-li>
             <p class="content">Estudar</p>
             </li>
+            {{!-- <form class="form2" action="/add-tarefa2" method="POST">
+            </form> --}}
         </ul>
+      </div>
+        
 </div>
-
+{{!-- {{else}}
+{{/each}} --}}
 
