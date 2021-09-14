@@ -6,7 +6,7 @@ class TabelaTarefa{
     }
 
     criarTabela(){
-        const sql = 'CREATE TABLE IF NOT EXISTS cadastroTarefas (id int NOT NULL AUTO_INCREMENT, tarefas varchar(50), status varchar(20), codigo_id int NOT NULL ,PRIMARY KEY(id), FOREIGN KEY (codigo_id) REFERENCES cadastroEmail(id));'
+        const sql = 'CREATE TABLE IF NOT EXISTS cadastroTarefas (id int NOT NULL AUTO_INCREMENT, tarefas varchar(50), status varchar(20), codigo_id int NOT NULL , identificaTarefa text,PRIMARY KEY(id), FOREIGN KEY (codigo_id) REFERENCES cadastroEmail(id));'
 
         this.conexao.query(sql, (erro) => {
             if(erro){

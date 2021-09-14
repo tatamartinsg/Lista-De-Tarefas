@@ -4,15 +4,28 @@ const bodyParser = require('body-parser')
 const handlebars = require("express-handlebars")
 const session = require('express-session')
 const flash = require('connect-flash')
+var uuid = require('uuid');
+var crypto = require('crypto');
+const SESS_SECRET = `ssh!quiet,it\'asecret!`
 // const handlebars = require("express-handlebars")
 
 module.exports = () => {
     const app = express()
     //sessão
     app.use(session({
+        cookie: {
+            maxAge: 15000000,
+            sameSite: false,
+            secure: SESS_SECRET,
+
+        },
+        // genid:function(req){
+        //     return crypto.createHash('sha256').update(uuid.v1()).update(crypto.randomBytes(256)).digest("hex");
+        // },
+        name: 'Teste',
         secret: 'secret-key',
         resave: false,
-        saveUninitialized: false
+        saveUninitialized: true
     }))
     app.use(flash())
     app.use((req,res,next)=>{

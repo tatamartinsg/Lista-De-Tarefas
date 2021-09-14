@@ -13,10 +13,13 @@
   "dependencies": {
     "connect-flash": "^0.1.1",
     "consign": "^0.1.6",
+    "cookie": "^0.4.1",
+    "crypto-js": "^4.1.1",
     "express": "^4.17.1",
     "express-handlebars": "^5.3.3",
     "express-session": "^1.17.2",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.12"

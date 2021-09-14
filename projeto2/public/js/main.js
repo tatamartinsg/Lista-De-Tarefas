@@ -29,7 +29,11 @@ const taskDone = (evento,id) => {
         const tarefaConcluida = pegaTarefa.parentElement;
         
         tarefaConcluida.classList.toggle('done');
-    
+        if (!document.querySelector('li.done')){
+            console.log('tarefa desfeita')
+            mudarValueInput.value = 2
+        }
+        
 }
 //============= Criar botao deleta =============//
 
@@ -96,7 +100,7 @@ function clicouDeleteButton(evento,id) {
     
     const form = document.querySelector(`.form-ul${id}`)
     form.submit()
-    // form.remove()
+    form.remove()
 
 }
 var j = 0
