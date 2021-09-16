@@ -10,15 +10,16 @@
       <h1 class="title">Lista de Tarefas</h1>
       
       <form class="form1994" action="/tarefas/add-tarefa" method="POST">
-        <input name="tarefaUM" class="form-input" type="text" data-form-input>
-        <button class="form-button" data-form-button> Novo Item </button>
+        <input name="tarefaUM" class="form-input" "all-input" type="text" data-form-input>
+        <button class="form-button" data-form-button> Adicionar Tarefa </button>
+        <input name="id_random" type="hidden" data-form-input-hidden>
       </form>
       
         
         <ul class="list" data-ul>
-            <li class="task" data-li>
+            {{!-- <li class="task" data-li>
             <p class="content">Estudar</p>
-            </li>
+            </li> --}}
             {{!-- <form class="form2" action="/add-tarefa2" method="POST">
             </form> --}}
         </ul>

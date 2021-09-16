@@ -12,3 +12,6 @@
   box-shadow: 0px 0px 6px 0px black;
 
 }
+.btn-danger, .alert-danger{
+  background-color: rebeccapurple;
+}

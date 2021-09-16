@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "ajax": "0.0.4",
     "connect-flash": "^0.1.1",
     "consign": "^0.1.6",
     "cookie": "^0.4.1",

@@ -1,3 +1,10 @@
+{{#each erros}}
+    <div class="alert alert-danger" data-div>{{text}} <button type="button" class="btn btn-danger" data-danger>X</button> </div>
+    
+{{else}}
+
+{{/each}}
+
 <section class="container-fluid teste2">
     <section class="row justify-content-center">
         <section class="col-12 col-sm-6 col-md-3">
@@ -5,7 +12,7 @@
                 <div class="form-group">
                     <label for="exampleInputEmail">Email</label>
                     <input type="email" name="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="EnterEmail@email.com">
-                    <small id="emailHelp" class="form-text text-muted">Sei la</small>
+                    <small id="emailHelp" class="form-text text-muted">Digite o email no formato email@email.com</small>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
