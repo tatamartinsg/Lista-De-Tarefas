@@ -11,6 +11,8 @@ let i = 0;
 // criaIdArray.push(geraId)
 // console.log(criaIdArray)
 class Tarefa{
+
+    
     
     adicionaTarefaBanco(tarefa,id3,id_random){
             // let geraId = id3
@@ -68,6 +70,18 @@ class Tarefa{
                     }
                 })
         
+    }
+
+    buscaPorId(id,res){
+        const sql = `SELECT * FROM cadastroTarefas WHERE id=${id}`
+        conexao.query(sql,(erro,resultados) => {
+            if(erro){
+                console.log("Erro ID = ",erro)
+            }
+            else{
+                console.log('ID deu certo: ',resultados)
+            }
+        })
     }
 
     deleteTask(pegaValorTarefaClicada, posicaoTarefa, id_aleatorio){

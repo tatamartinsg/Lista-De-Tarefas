@@ -8,7 +8,7 @@
 <section class="container-fluid teste2">
     <section class="row justify-content-center">
         <section class="col-12 col-sm-6 col-md-3">
-            <form action="/add-cadastro" method="POST" class="form-container">
+            <form action="/add-cadastro" method="POST" class="form-container" id="form-cadastro">
                 <div class="form-group">
                     <label for="exampleInputEmail">Email</label>
                     <input type="email" name="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="EnterEmail@email.com">
@@ -19,7 +19,7 @@
                     <input type="password" name="password" class="form-control" id="exampleInputPassword" placeholder="******" data-form-input2>
 
                 </div>
-                <button type="submit" class="btn btn-primary btn-block"  data-form-button2>Cadastrar</button>
+                <button class="btn btn-primary btn-block"  data-form-button2>Cadastrar</button>
                 {{!-- <div class="form-group form-check">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
                     <label class="form-check-label" for="exampleCheck1">Check me out</label>
@@ -30,35 +30,6 @@
             
         </section>
     </section>
-    {{!-- <form class="form-inline" action="/add-cadastro" method="POST"> 
-        <div class="form-group">
-            <label for="exampleInputEmail2">Email: </label>
-            <input type="email" name="email" class="form-control" id="exampleInputEmail2" placeholder="Email@email.com"> <br><br>
-        </div>
-        <div class="form-group">
-            <label for="password">Senha: </label>
-            <input type="password" name="password" class="form-control" id="password" placeholder="******"> <br><br>
-        </div>
-            <button type="submit" class="btn btn-default">Cadastrar</button>
-    </form> --}}
+
 </div>
-
-
-{{!-- <div class="app">
-    <div class="todo-list">
-      <h1 class="title">Lista de Tarefas</h1>
-      
-      <form class="form" action="/tarefas" method="POST">
-        <input name="text" class="form-input" type="text" data-form-input>
-        <button class="form-button" type="submit" data-form-button> Novo Item </button>
-
-      </form>
-        
-        <ul class="list" data-ul>
-            <li class="task" data-li>
-            <p class="content">Estudar</p>
-            </li>
-        </ul>
-</div>
-
- --}}
+<script src="js/cadastro-fetch.js"> </script>

@@ -2,52 +2,79 @@ const conexao = require('../infraestrutura/conexao')
 
 class Cadastro {
 
-    adicionaCadastro(cadastro,res){
-        const clienteEhvalido = cadastro.password.length >= 5
+    verificaCadastro(cadastro,res){
+        const sql = `SELECT * FROM cadastroEmail WHERE email = '${cadastro.email}';`
 
-        const validacoes = [
-            {
-                nome: 'senha',
-                valido: clienteEhvalido,
-                mensagem: 'A senha deve ter no mínimo 5 caracteres!'
-            }
-        ]
-
-        const erros = validacoes.filter( campo => !campo.valido)
-        const existemErros = erros.length
-
-        if(existemErros){
-            console.log(erros)
-            res.redirect('/cadastro')
-        }
-        else{
-            console.log("Enviando para o banco de dados com sucesso!")
-            const sql = `INSERT INTO cadastroEmail SET ? ;`
-
-            conexao.query(sql, cadastro, (erro,resultados) => {
-                if(erro){
-                    console.log(erro)
-                }
-                else{
-                    console.log(resultados)
-                    // console.log(res)
-                }
-            })
-        } 
-    }
-
-    lista(res){
-        const sql = 'SELECT * FROM cadastroEmail'
-
-        conexao.query(sql, (erro, resultados) => {
+        conexao.query(sql, (erro, resultados_email) => {
             if(erro){
-                console.log("Lista erro:",erro)
+                console.log("Erro ao selecionar email: ",erro)
             }
             else{
-                console.log("Deu certo lista: ",resultados)
+                console.log("Selecionando email existente (ou nao existente): ",resultados_email)
+                console.log(resultados_email.length)
+                const existeEmail = resultados_email.length 
+                if (existeEmail >= 1){
+                    console.log(`Já existe um email com ${cadastro.email}`)
+                    const emailExiste = {emailExiste: cadastro.email}
+                    res.json(emailExiste)
+                    
+                }
+                else{
+                    console.log("Não existe um email ainda")
+                    console.log("Adicionando os dados ao mySQL!")
+                    adicionaCadastro(cadastro,res)
+                    function adicionaCadastro(cadastro,res){
+                        const clienteEhvalido = cadastro.password.length >= 5
+                
+                        const validacoes = [
+                            {
+                                nome: 'senha',
+                                valido: clienteEhvalido,
+                                mensagem: 'A senha deve ter no mínimo 5 caracteres!'
+                            }
+                        ]
+                
+                        const erros = validacoes.filter( campo => !campo.valido)
+                        const existemErros = erros.length
+                
+                        if(existemErros){
+                            console.log(erros)
+                            res.redirect('/cadastro')
+                        }
+                        else{
+                            
+                            const sql = `INSERT INTO cadastroEmail SET ? ;`
+                
+                            conexao.query(sql, cadastro, (erro,resultados) => {
+                                if(erro){
+                                    console.log(erro)
+                                }
+                                else{
+                                    console.log("Enviando para o banco de dados com sucesso!")
+                                    console.log(`Dados:\nemail: ${cadastro.email}\n senha:${cadastro.password}\n adicionados com sucesso!`)
+                                    
+                                    const sql_select_again = `SELECT * FROM cadastroEmail WHERE email = '${cadastro.email}';`
+                                    conexao.query(sql_select_again, (erro,pegaDados)=>{
+                                        if(erro){
+                                            console.log("Deu erro ao selecionar de novo: ",erro)
+                                        }
+                                        else{
+                                            console.log(pegaDados)
+                                            res.json(pegaDados)
+                                        }
+                                    })
+                                
+                                }
+                            })
+                        } 
+                    }
+                    
+                }
             }
         })
     }
+    
+
     buscaPorId(id,res){
         const sql = `SELECT * FROM cadastroEmail WHERE id=${id}`
         conexao.query(sql,(erro,resultados) => {

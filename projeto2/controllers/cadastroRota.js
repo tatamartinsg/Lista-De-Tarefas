@@ -1,6 +1,11 @@
 const Cadastro = require('../models/cadastroM')
 
 module.exports = app => {
+    app.get('/', (req,res)=>{
+        res.render('escolha')
+        //verificar se a pessoa clicou no botao LOGIN ou CADASTRO e redirecionar as páginas
+    
+    })
     app.get("/cadastro", (req,res)=>{
         res.render('cadastro')
     })
@@ -11,7 +16,10 @@ module.exports = app => {
     })
 
     app.post("/add-cadastro", (req,res) => {
-        const cadastro = req.body
+        
+        console.log(JSON.parse(JSON.stringify(req.body)))
+        // console.log(JSON.parse(JSON.stringify(req.body)))
+        const cadastro = JSON.parse(JSON.stringify(req.body))
         const emaill = req.body.email
         const senha = req.body.password
         var erros = []
@@ -41,8 +49,14 @@ module.exports = app => {
             res.render("cadastro", {erros: erros})
         }
         else{
-            res.redirect('/tarefas')
-            Cadastro.adicionaCadastro(cadastro,res)
+            //confere se tem esse email e senha no select do banco de dados
+            //se nao tiver, cadastra, se tiver, dê mensagem de erro falando que ja existe!
+
+            Cadastro.verificaCadastro(cadastro,res)
+            
+            
+            // Cadastro.adicionaCadastro(cadastro,res)
+            // res.redirect('/tarefas')
         }
         
         // const obj = Object.assign({},req.body)

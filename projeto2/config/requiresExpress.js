@@ -4,9 +4,12 @@ const bodyParser = require('body-parser')
 const handlebars = require("express-handlebars")
 const session = require('express-session')
 const flash = require('connect-flash')
+const cors = require('cors')
 
 module.exports = () => {
     const app = express()
+
+    app.use(cors())
     //sessão
     app.use(session({
         cookie: {

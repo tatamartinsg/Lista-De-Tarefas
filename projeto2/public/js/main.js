@@ -119,12 +119,13 @@ function clicouDeleteButton(evento,id) {
 }
 var j = 0
 const criarTarefa = (evento) =>{
+    // evento.preventDefault();
     contar_clicks = 0
     const $acessar_li_random = document.querySelector('[data-form-input-hidden]')
     let random = Math.floor(Math.random() * 100000)
     $acessar_li_random.value = random
 
-    evento.preventDefault();
+    
 
 
     const $acessar_ul = document.querySelector('[data-ul]');
@@ -147,7 +148,7 @@ const criarTarefa = (evento) =>{
 
     }
     else{
-        document.querySelector('.form1994').submit()
+        document.querySelector('.form1994')
         const criarTarefaLi = document.createElement('li');
         criarTarefaLi.classList.add('task');
         let id = document.createAttribute('id')
@@ -202,11 +203,43 @@ const criarTarefa = (evento) =>{
             tarefas: valorInput,
             id: random
         })
+        
+        
 
         localStorage.setItem("tarefas_listadas", JSON.stringify(tarefas_listadas))
     }
+        
 }
+        
+// var myHeaders = new Headers();
+// // var form = new FormData(document.querySelector('.form1994'))
+// var myInit = { 
+//                     method: 'POST',
+//                     headers: myHeaders,
+//                     mode: 'cors',
+//                     cache: 'default',
+//                     // body: form
+//                     };
 
+// fetch("/tarefas/add-tarefa",myInit)
+//             .then((response) => {
+//                 alert(response)
+//                 console.log(response.json());
+//                 console.log(response)
+//             })
+//             .catch(function(error) {
+//                 console.log('There has been a problem with your fetch operation: ' + error.message);
+//             });     
+
+// var form = new FormData(document.querySelector('.form1994'))
+// console.log(form)
+//    fetch("/add-tarefa", {
+//        method: 'POST',
+//        body: form
+//    }).then(function(response,req) {
+//        console.log(response.json())
+//        console.log(response.body);
+//     })
 //clica
 //pega o id
 //envia para o backend
