@@ -1,5 +1,8 @@
 const myForm = document.getElementById('form-cadastro-login')
 
+let arrayteste = []
+
+var id = 0;
 
 myForm.addEventListener('submit', function (e) {
     alert('ue')
@@ -34,25 +37,31 @@ myForm.addEventListener('submit', function (e) {
                 }
                 else{
                     alert("Logado com sucesso! Redirecionando para a página de tarefas!")
-                    console.log(data)
-                    // fetch('/tarefas',{
-                    //     method: 'GET',
-                    // }). then(response => {
-                    //         alert('ou')
-                    //          window.location.href = '/tarefas'
-                    // })
-                    window.location.href = '/tarefas'
-                    // fetch('/tarefas',{
-                    //     method: 'POST',
-                    // }).then(response => response.json())
-                   
-
+                    console.log(data[0].id)
+                    arrayteste.push(data)
+                    console.log(arrayteste)
                     
+                    id = data[0]['id']
+
+                    fetch(`/tarefas/${data[0].email}/${data[0].id}`,{
+                        method: 'GET',
+                    }).then (response => {
+                        console.log(response)
+                        window.location.href = `tarefas/${data[0].email}/${data[0].id}`
+
+                        
+                        
+                }
+                        
+                        
+                    )         
+                          
                     
                 }
-                
             }) 
         )
     }
     
 })
+
+module.exports = id;

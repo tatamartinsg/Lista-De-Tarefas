@@ -1,12 +1,21 @@
+const Tarefas = require('../models/tarefaM2')
+
 module.exports = app => {
-    app.get('/tarefas',(req,res)=>{
-        res.render('tarefas')
+    app.get('/tarefas/:email/:id',(req,res)=>{
+        res.render('tarefas', {id: req.params.id})
+        // res.json({ id: req.params });
+        console.log(req.params)
+        
         console.log("entrou get tarefa")
     })
-    app.post('/tarefas/add-tarefas',(req,res)=>{
+    app.post('/tarefas/add-tarefas/:id',(req,res)=>{
         console.log("Entrou post tarefas")
-        console.log(req.body)
+        const id_login = req.params.id
+        console.log(id_login)
+        Tarefas.adicionaTarefaAoBanco(req.body,res,id_login)
         // ADICIONAR TAREFA NO BANCO DE DADOS
+
+
 
 
 

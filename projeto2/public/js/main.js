@@ -148,6 +148,9 @@ const criarTarefa = (evento) =>{
 
     }
     else{
+
+        
+
         document.querySelector('.form1994')
         const criarTarefaLi = document.createElement('li');
         criarTarefaLi.classList.add('task');
@@ -207,6 +210,8 @@ const criarTarefa = (evento) =>{
         
 
         localStorage.setItem("tarefas_listadas", JSON.stringify(tarefas_listadas))
+
+       
     }
         
 }

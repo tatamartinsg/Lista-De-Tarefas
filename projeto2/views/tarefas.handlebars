@@ -14,6 +14,7 @@
         <button class="form-button" data-form-button> Adicionar Tarefa </button>
         <input name="id_random" type="hidden" data-form-input-hidden>
       </form>
+
       
         
         <ul class="list" data-ul>
@@ -27,5 +28,33 @@
         
 </div>
 
-<script src="js/tarefa-fetch.js"> </script>
-<script src="js/main.js"></script>
+
+<script src="/js/main.js"></script>
+<script src="/js/tarefa-fetch.js"> </script>
+<script>
+  var id = "{{ id }}";
+  console.log(id)
+  const formTarefa = document.getElementById('form-tarefas')
+
+formTarefa.addEventListener('submit', function (e) {
+    e.preventDefault()
+    alert('clicou botao')
+    const $input_tarefa = document.getElementById('tarefa-input')
+    console.log($input_tarefa.value)
+    const formDataTarefa = new FormData(this)
+    const searchParamsTarefa = new URLSearchParams()
+                    
+    for (const pair of formDataTarefa){
+        searchParamsTarefa.append(pair[0],pair[1])
+    }
+    
+    fetch(`/tarefas/add-tarefas/${id}`,{
+            method: 'POST',
+            body: searchParamsTarefa
+        }).then(response => response.json()
+            .then(data => {
+                console.log(data)
+            })
+        )
+})
+</script>
