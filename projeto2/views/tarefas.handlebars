@@ -18,11 +18,7 @@
       
         
         <ul class="list" data-ul>
-            {{!-- <li class="task" data-li>
-            <p class="content">Estudar</p>
-            </li> --}}
-            {{!-- <form class="form2" action="/add-tarefa2" method="POST">
-            </form> --}}
+
         </ul>
       </div>
         
@@ -30,15 +26,17 @@
 
 
 <script src="/js/main.js"></script>
-<script src="/js/tarefa-fetch.js"> </script>
 <script>
   var id = "{{ id }}";
-  console.log(id)
+
   const formTarefa = document.getElementById('form-tarefas')
+  var a = 0
+  var b = 0
 
 formTarefa.addEventListener('submit', function (e) {
+    var contacliq = 0
     e.preventDefault()
-    alert('clicou botao')
+
     const $input_tarefa = document.getElementById('tarefa-input')
     console.log($input_tarefa.value)
     const formDataTarefa = new FormData(this)
@@ -53,8 +51,40 @@ formTarefa.addEventListener('submit', function (e) {
             body: searchParamsTarefa
         }).then(response => response.json()
             .then(data => {
-                console.log(data)
-            })
-        )
+                a = b++
+                const $pegabotaoDelete = document.querySelector(`.delete-button${a}`)
+                const $pegabotao = document.querySelector(`.check-button${a}`)
+                const pegaForm = document.querySelector(`.form-ul${a}`)
+                const idtarefa = data[0].id
+                $pegabotao.setAttribute('id', data[0].id)
+               
+
+                $pegabotao.addEventListener('click', (e) => {
+                  const formButton = document.querySelector(`.form-ul${a}`)
+
+                  contacliq += 1
+                  e.preventDefault()                 
+                    fetch(`/status/${idtarefa}/${contacliq}`,{
+                      method: 'GET'
+                    })
+                })
+
+                $pegabotaoDelete.addEventListener('click', (e) => {
+                  const formButton = document.querySelector(`.form-ul${a}`)
+
+                  e.preventDefault()                 
+                    fetch(`/delete/${idtarefa}`,{
+                      method: 'GET'
+                    })
+                })
+
+
+              })
+            )
+          
+            
 })
+
+
 </script>
+<script src="/js/conclui-fetch.js"></script>

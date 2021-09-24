@@ -13,9 +13,6 @@ myForm.addEventListener('submit', function (e) {
     const valor_input_password = $input_password.value
 
     if((valor_input.length < 10) || valor_input_password.length < 5){
-        // const $section = document.querySelector('.container-fluid')
-        
-        // $section.innerHTML += '<div class="alert alert-danger" data-div>ue <button type="button" class="btn btn-danger" data-danger>X</button> </div>'
         return alert("Campo de cadastro incompleto!")
     }
     else{
@@ -33,7 +30,6 @@ myForm.addEventListener('submit', function (e) {
             .then(data => {
                 if(data.loginNaoExiste){
                     alert("Login inválido!")
-                    // console.log(data.loginNaoExiste)
                 }
                 else{
                     alert("Logado com sucesso! Redirecionando para a página de tarefas!")
