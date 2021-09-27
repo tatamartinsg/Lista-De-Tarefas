@@ -12,14 +12,14 @@ body {
   width: 100vw;
   min-height: 100vh;
 }
-.form-container{
+/* .form-container{
   margin: 10px;
 
-}
+} */
 
-#id-botao-login{
+/* #id-botao-login{
   background-color: green;
-}
+} */
 .todo-list {
   background-color: #0B2027;
   font-family: "Space Mono", monospace;
@@ -120,6 +120,7 @@ body {
 }
 
 .todo-list {
+  border-style: outset;
   background-color: #0B2027;
   font-family: "Space Mono", monospace;
   padding: 1rem;
@@ -159,6 +160,12 @@ body {
 .form-button:hover {
   color: #F6F1D1;
   background: rgba(246, 241, 209, 0.1);
+}
+label{
+  color: white;
+  font-weight: bold;
+  text-shadow: 0.05em 0.05em 0.1em black;
+  font-size: 18px;
 }
 
 .list {

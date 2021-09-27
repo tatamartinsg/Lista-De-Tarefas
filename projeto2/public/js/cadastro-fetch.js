@@ -1,5 +1,5 @@
 const myForm = document.getElementById('form-cadastro')
-
+var aux = 0
 myForm.addEventListener('submit', function (e) {
     e.preventDefault()
     const $input_email = document.querySelector('#exampleInputEmail')
@@ -26,12 +26,26 @@ myForm.addEventListener('submit', function (e) {
         .then(response => response.json()
             .then(data => {
                 if(data.emailExiste){
-                     alert(`Email: ${data.emailExiste}, já existe!`)
+                    const $pega_section = document.querySelector('.div-alert')
+                    $pega_section.innerHTML = `<div class="alert alert-danger" role="alert">
+                    Email existente, por favor digite outro email!
+                  </div>`
+                  setTimeout(()=>{$pega_section.remove()},2000)
                 }
                 else{
-                    alert('Email cadastrado com sucesso!')
+                    setTimeout(function(){ window.location.href = '/login' }, 1000);
+
+                    const $pega_section = document.querySelector('.div-alert')
+                    $pega_section.innerHTML = `
+                        <div class="alert alert-success" role="alert">
+                                    Cadastro realizado com sucesso!
+                        </div>`
+                    
+                    
+
+                    
                     console.log(data)
-                    window.location.href = '/login'
+                   
 
                     
                 }

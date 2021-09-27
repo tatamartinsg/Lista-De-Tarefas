@@ -1,0 +1,80 @@
+html {
+    height: 100%;
+    
+}
+@font-face {
+    font-family:'fonte-baixada' ;
+    src: url('../../fonts/Aesthetic\ Violet.otf') format('opentype');
+}
+body{
+    background: linear-gradient(135deg, rgb(25, 38, 65) 50%, cyan);
+    background-repeat: no-repeat;
+}
+h1, p{
+    color: honeydew;
+}
+.h1-form{
+    text-transform: uppercase;
+    font-size: 50px;
+    padding: 10px;
+    font-family: 'fonte-baixada', sans-serif;
+    text-shadow: 0.05em 0.05em 0.1em black;
+    text-align: center;
+}
+.teste2{
+    margin-top: 8%;
+}
+.section-cadastro{
+    text-align: center;
+    border-style: outset;
+    width: auto;
+}
+.form-all{
+    padding: 25px;
+    border-style: outset;
+}
+.div-div{
+    text-align: center;
+    width: 500px;
+    height: 300px;
+    border-style: outset;
+    margin-top:8%;
+    margin-left: 30%;
+
+}
+.welcome{
+   margin-bottom: 30px;
+   text-transform: uppercase;
+    font-size: 45px;
+    padding: 6px;
+    font-family: 'fonte-baixada', sans-serif;
+    text-shadow: 0.05em 0.05em 0.1em black;
+    text-align: center;
+   
+}
+.div-principal{
+    text-align: center;
+    width: auto;
+    height: auto;
+    margin-top: 5%;
+    font-size: 25px;
+
+}
+.btn-lg{
+    width: 150px;
+    background-color: tomato;
+}
+.btn-primary{
+    width: 250px;
+}
+.form-group2{
+   padding: 20px;
+}
+
+.form-home2{
+    height: 150px;
+    width: auto;
+}
+h2{
+    color: white;
+}

@@ -1,0 +1,58 @@
+html {
+    height: 100%;
+    
+}
+body{
+    background: linear-gradient(135deg, rgb(25, 38, 65) 50%, cyan);
+    background-repeat: no-repeat;
+}
+h1, p{
+    color: honeydew;
+}
+.teste2{
+    margin-top: 12%;
+}
+.section-cadastro{
+    text-align: center;
+    border-style: outset;
+    width: auto;
+}
+.div-div{
+    text-align: center;
+    width: 500px;
+    height: 300px;
+    border-style: outset;
+    margin-top:12%;
+    margin-left: 30%;
+
+}
+.welcome{
+   margin-bottom: 30px;
+   
+}
+.div-principal{
+    text-align: center;
+    width: auto;
+    height: auto;
+    margin-top: 5%;
+    font-size: 25px;
+
+}
+.btn-lg{
+    background-color: rgb(38, 84, 122);
+    width: 150px;
+}
+.btn-primary{
+    width: 250px;
+}
+.form-group2{
+    
+   padding: 20px;
+}
+form{
+    height: 150px;
+    width: auto;
+}
+h2{
+    color: white;
+}

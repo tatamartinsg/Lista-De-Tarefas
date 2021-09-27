@@ -4,11 +4,14 @@
 {{else}}
 
 {{/each}}
+<section class="div-alert"></section>
 
-<section class="container-fluid teste2">
+<section class="container-fluid teste2 ">
+    <h1 class="h1-form">𝐶𝑎𝑑𝑎𝑠𝑡𝑟𝑜</h1>
     <section class="row justify-content-center">
-        <section class="col-12 col-sm-6 col-md-3">
-            <form action="/add-cadastro" method="POST" class="form-container" id="form-cadastro">
+        <section class="col-12 col-sm-6 col-md-3 form-all">
+            <div class="seila">
+            <form action="/add-cadastro" method="POST" class="form-container form-cadastro-class" id="form-cadastro">
                 <div class="form-group">
                     <label for="exampleInputEmail">Email</label>
                     <input type="email" name="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="EnterEmail@email.com">
@@ -27,6 +30,7 @@
             
                 
             </form>
+            </div>
             
         </section>
     </section>
