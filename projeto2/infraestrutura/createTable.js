@@ -13,7 +13,7 @@ class Tabelas{
                 console.log(erro)
             }
             else{
-                console.log("Tabela cadastroEmail criado com sucesso")
+                console.log("Tabela cadastroEmail criada com sucesso!")
             }
         })
     }

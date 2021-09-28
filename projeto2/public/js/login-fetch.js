@@ -1,8 +1,22 @@
 const myForm = document.getElementById('form-cadastro-login')
 
 let arrayteste = []
-
+const $pega_section = document.querySelector('.section-alert')
+let mensg = 'Página de Login redirecionada com sucesso!'
 var id = 0;
+
+function geraAlertSucesso(params) {
+    const cria_div_alert = document.createElement('div')
+    $pega_section.appendChild(cria_div_alert)
+
+    cria_div_alert.innerHTML = `
+    <div class="alert alert-success" role="alert">
+            ${params} <p class="spinner is-animating"></p>
+    </div>`
+    setTimeout(()=>{cria_div_alert.remove()},2500) 
+}
+geraAlertSucesso(mensg)
+
 
 myForm.addEventListener('submit', function (e) {
     e.preventDefault()
@@ -12,8 +26,24 @@ myForm.addEventListener('submit', function (e) {
     const valor_input_password = $input_password.value
     const $pega_section = document.querySelector('.section-alert')
 
-    if((valor_input.length < 10) || valor_input_password.length < 5){
-        return alert("Campo de cadastro incompleto!")
+    function  geraAlertErro(params) {
+        const cria_div_alert = document.createElement('div')
+        $pega_section.appendChild(cria_div_alert)
+
+        cria_div_alert.innerHTML = `
+        <div class="alert alert-danger"role="alert">${params}<p class="spinner is-animating"></p></div>`
+        setTimeout(()=>{cria_div_alert.remove()},3000)
+    }
+    
+
+    if(valor_input.length < 10){
+        let mensagem = 'Email inexistente. O email precisa ter mais de 10 caracteres. Por favor insira outro email.'
+        geraAlertErro(mensagem)
+    }
+    
+    else if(valor_input_password.length < 5){
+        let mensagem = 'Senha inexistente. A senha precisa ter ao mínimo 5 caracteres. Por favor digite outra senha.'
+        geraAlertErro(mensagem)
     }
     else{
         const formData = new FormData(this)
@@ -29,29 +59,22 @@ myForm.addEventListener('submit', function (e) {
         }).then(response => response.json()
             .then(data => {
                 if(data.loginNaoExiste){
-                    $pega_section.innerHTML = `<div class="alert alert-danger" role="alert">
-                        Login inexistente! Por favor tente de novo.
-                  </div>`
-                    setTimeout(()=>{$pega_section.remove()},2000)
+                    let mensagem = 'Login inexistente! Por favor tente de novo.'
+                    geraAlertErro(mensagem)
                 }
                 else{
-                    $pega_section.innerHTML = ` <div class="alert alert-success" role="alert">
-                        Login realizado com sucesso!
-                    </div>`
+                    let mensagem = ' Login realizado com sucesso! Redirecionando para a Lista de Tarefas!' 
+                    geraAlertSucesso(mensagem)
 
-                    console.log(data[0].id)
-                    arrayteste.push(data)
-                    console.log(arrayteste)
-                    
                     id = data[0]['id']
-                     
+
                     fetch(`/tarefas/${data[0].email}/${data[0].id}`,{
                         method: 'GET',
                     }).then (response => {
                             console.log(response)
                             setTimeout(function(){ 
                                 window.location.href = `tarefas/${data[0].email}/${data[0].id}`
-                            }, 1000);
+                            }, 3000);
                         })         
                     }
             }) 

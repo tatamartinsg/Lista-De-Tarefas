@@ -1,7 +1,6 @@
 const conexao = require('../infraestrutura/conexao')
 
 class Cadastro {
-
     verificaCadastro(cadastro,res){
         const sql = `SELECT * FROM cadastroEmail WHERE email = '${cadastro.email}';`
 
@@ -20,17 +19,15 @@ class Cadastro {
                     
                 }
                 else{
-                    console.log("Não existe um email ainda")
-                    console.log("Adicionando os dados ao mySQL!")
+                    console.log("Email sugerido está disponível para ser cadastrado!")
                     adicionaCadastro(cadastro,res)
+
                     function adicionaCadastro(cadastro,res){
                         const clienteEhvalido = cadastro.password.length >= 5
-                
                         const validacoes = [
                             {
                                 nome: 'senha',
-                                valido: clienteEhvalido,
-                                mensagem: 'A senha deve ter no mínimo 5 caracteres!'
+                                valido: clienteEhvalido
                             }
                         ]
                 
@@ -42,7 +39,7 @@ class Cadastro {
                             res.redirect('/cadastro')
                         }
                         else{
-                            
+                            console.log("Adicionando os dados ao mySQL!")
                             const sql = `INSERT INTO cadastroEmail SET ? ;`
                 
                             conexao.query(sql, cadastro, (erro,resultados) => {
@@ -63,18 +60,15 @@ class Cadastro {
                                             res.json(pegaDados)
                                         }
                                     })
-                                
                                 }
                             })
                         } 
                     }
-                    
                 }
             }
         })
     }
     
-
     buscaPorId(id,res){
         const sql = `SELECT * FROM cadastroEmail WHERE id=${id}`
         conexao.query(sql,(erro,resultados) => {

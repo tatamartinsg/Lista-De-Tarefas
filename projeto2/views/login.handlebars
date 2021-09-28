@@ -1,17 +1,14 @@
 {{#each erros}}
     <div class="alert alert-danger" data-div>{{text}} <button type="button" class="btn btn-danger" data-danger>X</button> </div>
-    
 {{else}}
 
 {{/each}}
 <section class="section-alert"></section>
 
 <section class="container-fluid teste2">
-     <h1 class="h1-form">𝐿𝑜𝑔𝑖𝑛</h1>
     <section class="row justify-content-center">
-       
         <section class="col-12 col-sm-6 col-md-3 form-all ">
-            
+            <h1 class="h1-form">𝐿𝑜𝑔𝑖𝑛</h1>
             <form class="form-container" id="form-cadastro-login">
                 <div class="form-group">
                     <label for="exampleInputEmail">Email</label>
@@ -21,19 +18,10 @@
                 <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
                     <input type="password" name="password" class="form-control" id="exampleInputPassword" placeholder="******" data-form-input2>
-
                 </div>
                 <button class="btn btn-primary btn-block" id="id-botao-login" data-form-button2>Login</button>
-                {{!-- <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                </div> --}}
-            
-                
             </form>
-            
         </section>
     </section>
-
-</div>
+</section>
 <script src="js/login-fetch.js"> </script>

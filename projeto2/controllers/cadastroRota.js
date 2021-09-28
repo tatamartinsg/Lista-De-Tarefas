@@ -16,19 +16,7 @@ module.exports = app => {
     })
 
     app.post("/add-cadastro", (req,res) => {
-        
-        console.log(JSON.parse(JSON.stringify(req.body)))
-        // console.log(JSON.parse(JSON.stringify(req.body)))
         const cadastro = JSON.parse(JSON.stringify(req.body))
-            //confere se tem esse email e senha no select do banco de dados
-            //se nao tiver, cadastra, se tiver, dê mensagem de erro falando que ja existe!
         Cadastro.verificaCadastro(cadastro,res)
-        
-        // const obj = Object.assign({},req.body)
-        // console.log(obj)
-        // console.log(req.body)
-        
-
     })
-    
 }

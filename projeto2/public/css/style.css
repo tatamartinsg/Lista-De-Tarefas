@@ -1,10 +1,36 @@
-body {
-  margin: 0;
+html {
+  height: 100%;
+}
+.oi-body{
+  background-color: #0B2027;
+}
+.spinner {
+	border: 5px solid #867d7d;
+  border-left-color: #60dd60;
+	border-radius: 100%;
+	height: 30px;
+	width: 30px;
+  float:right;
+}
+@keyframes loading {
+	0% {
+		transform: rotate(0);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+.spinner.is-animating {
+	animation: loading 1s linear infinite;
+}
+.alert-danger{
+  /* display: inline-block;
+  width: 100%; */
+  text-align: center;
 }
 .h1-form{
   text-align: center;
 }
-
 .app {
   display: flex;
   align-items: center;
@@ -12,14 +38,6 @@ body {
   width: 100vw;
   min-height: 100vh;
 }
-/* .form-container{
-  margin: 10px;
-
-} */
-
-/* #id-botao-login{
-  background-color: green;
-} */
 .todo-list {
   background-color: #0B2027;
   font-family: "Space Mono", monospace;
@@ -55,19 +73,16 @@ body {
   cursor: pointer;
   margin-left: 0.25rem;
 }
-
 .form-button:hover {
   color: #F6F1D1;
   background: rgba(246, 241, 209, 0.1);
 }
-
 body {
   margin: 0;
 }
 .done{
   opacity: 0.6;
 }
-
 .app {
   display: flex;
   align-items: center;
@@ -75,22 +90,20 @@ body {
   width: 100vw;
   min-height: 100vh;
 }
-
 .todo-list {
-  background-color: #0B2027;
+  background: linear-gradient(135deg, rgb(25, 38, 65) 50%, cyan);
+  background-repeat: no-repeat;
   font-family: "Space Mono", monospace;
   padding: 1rem;
   min-width: 400px;
   min-height: 300px;
 }
-
 .title {
   border-bottom: 1px solid rgba(246, 241, 209, 0.5);
   font-size: 1.5rem;
   font-family: "BioRhyme", serif;
   color: #F6F1D1;
 }
-
 .form-button {
   border: 1px;
   background: #F6F1D1;
@@ -98,19 +111,16 @@ body {
   cursor: pointer;
   margin-left: 0.25rem;
 }
-
 .form-button:hover {
   color: #F6F1D1;
   background: rgba(246, 241, 209, 0.1);
 }
-
 body {
   margin: 0;
 }
 .done{
   opacity: 0.6;
 }
-
 .app {
   display: flex;
   align-items: center;
@@ -118,16 +128,14 @@ body {
   width: 100vw;
   min-height: 100vh;
 }
-
 .todo-list {
   border-style: outset;
-  background-color: #0B2027;
+  /* background-color: #0B2027; */
   font-family: "Space Mono", monospace;
   padding: 1rem;
   min-width: 400px;
   min-height: 300px;
 }
-
 .title {
   border-bottom: 1px solid rgba(246, 241, 209, 0.5);
   font-size: 1.5rem;
@@ -167,7 +175,6 @@ label{
   text-shadow: 0.05em 0.05em 0.1em black;
   font-size: 18px;
 }
-
 .list {
   padding: 0;
   list-style: none;
@@ -179,7 +186,6 @@ p.content{
 li{
   text-align: center;
 }
-
 .task {
   background-color: rgba(255, 255, 255, 0.1);
   color: #F6F1D1;
@@ -187,9 +193,6 @@ li{
   margin-bottom: 0.5rem;
   padding: 1rem 3rem;
 }
-/* .check-button{
-  margin-left: 35%;
-} */
 .check-button, .delete-button {
   margin: 0 0 0 10px;
   background-color: #F6F1D1;
@@ -198,9 +201,7 @@ li{
   outline: none;
   border-radius: 2px;
   cursor: pointer;
-  
 }
-
 .delete-button:hover{
   background-color: rgb(212, 68, 68);
 }
@@ -211,7 +212,6 @@ li{
   background-color: #46494C;
   color: #F6F1D1;
 }
-
 .check-icon {
   display: block;
   padding: 1px;
@@ -220,17 +220,12 @@ li{
   background-color: transparent;
   border-radius: 50%;
 }
-
 .task.done .check-icon {
   background-color: #0B2027;
 }
-
 .content {
   margin: 0;
 }
-
 .task.done .content {
   text-decoration: line-through;
 }
-
-/*# sourceMappingURL=style.css.map */

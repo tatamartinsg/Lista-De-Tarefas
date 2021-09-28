@@ -20,7 +20,7 @@ h1, p{
 .div-div{
     text-align: center;
     width: 500px;
-    height: 300px;
+    height: 320px;
     border-style: outset;
     margin-top:12%;
     margin-left: 30%;
@@ -46,7 +46,6 @@ h1, p{
     width: 250px;
 }
 .form-group2{
-    
    padding: 20px;
 }
 form{

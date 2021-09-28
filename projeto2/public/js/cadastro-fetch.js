@@ -2,16 +2,40 @@ const myForm = document.getElementById('form-cadastro')
 var aux = 0
 myForm.addEventListener('submit', function (e) {
     e.preventDefault()
+    
     const $input_email = document.querySelector('#exampleInputEmail')
     const $input_password = document.querySelector('#exampleInputPassword')
     const valor_input = $input_email.value
     const valor_input_password = $input_password.value
+    const $pega_section = document.querySelector('.section-alert')
 
-    if((valor_input.length < 10) || valor_input_password.length < 5){
-        // const $section = document.querySelector('.container-fluid')
+    function  geraAlertErro(params) {
+        const cria_div_alert = document.createElement('div')
+        $pega_section.appendChild(cria_div_alert)
+
+        cria_div_alert.innerHTML = `
+        <div class="alert alert-danger"role="alert">${params}<p class="spinner is-animating"></p></div>`
+        setTimeout(()=>{cria_div_alert.remove()},3000)
+    }
+    
+    function geraAlertSucesso(params) {
+        const cria_div_alert = document.createElement('div')
+        $pega_section.appendChild(cria_div_alert)
+
+        cria_div_alert.innerHTML = `
+        <div class="alert alert-success" role="alert">
+                ${params} <p class="spinner is-animating"></p>
+        </div>`
+    }
+
+    if((valor_input.length < 10)){
+        let mensagem = 'O email precisa ter mais de 10 caracteres. Por favor insira outro email.'
+        geraAlertErro(mensagem)
         
-        // $section.innerHTML += '<div class="alert alert-danger" data-div>ue <button type="button" class="btn btn-danger" data-danger>X</button> </div>'
-        return alert("Campo de cadastro incompleto!")
+    }
+    else if(valor_input_password.length < 5){
+        let mensagem = 'A senha precisa ter ao mínimo 5 caracteres. Por favor escolha outra senha.'
+        geraAlertErro(mensagem)
     }
     else{
         const formData = new FormData(this)
@@ -21,100 +45,20 @@ myForm.addEventListener('submit', function (e) {
             searchParams.append(pair[0],pair[1])
         }
 
-        fetch('/add-cadastro',{method: 'POST',body: searchParams
-        })
+        fetch('/add-cadastro',{method: 'POST',body: searchParams})
         .then(response => response.json()
             .then(data => {
                 if(data.emailExiste){
-                    const $pega_section = document.querySelector('.div-alert')
-                    $pega_section.innerHTML = `<div class="alert alert-danger" role="alert">
-                    Email existente, por favor digite outro email!
-                  </div>`
-                  setTimeout(()=>{$pega_section.remove()},2000)
+                    let mensagem = 'Email existente, por favor digite outro email!'
+                    geraAlertErro(mensagem)
                 }
                 else{
-                    setTimeout(function(){ window.location.href = '/login' }, 1000);
-
-                    const $pega_section = document.querySelector('.div-alert')
-                    $pega_section.innerHTML = `
-                        <div class="alert alert-success" role="alert">
-                                    Cadastro realizado com sucesso!
-                        </div>`
-                    
-                    
-
-                    
-                    console.log(data)
-                   
-
-                    
+                    let mensagem = 'Cadastro realizado com sucesso! Redirecionando à página de Login!'
+                    geraAlertSucesso(mensagem)
+                    setTimeout(function(){ window.location.href = '/login' }, 5000);
+                
                 }
             })  
         )
     }
 })
-
-
-
-
-
-
-
-
-
-
-// const botao = document.querySelector('[data-form-button2]')
-
-// botao.addEventListener('click', ()=> {
-//     // document.querySelector('#form-cadastro').submit()
-//     // let arrayCadastro = []
-//     let form = new FormData (document.querySelector('#form-cadastro'))
-//     const data = new URLSearchParams(form)
-
-//     var myInit = { 
-//                    method: 'POST',
-//                    headers: {"Content-Type": "application/x-www-form-urlencoded"},
-//                    mode: 'cors',
-//                    cache: 'default',
-//                    body: data
-//                 }
-    
-//      fetch('/add-cadastro',myInit)
-//         .then(response => {
-//             return response.json()
-//         })
-//         .then ( resposta => {
-//             console.log(resposta)
-//         })
-//         .catch(function(error) {
-//             console.log('There has been a problem with your fetch operation: ' + error.message);
-//         });
-// })
-// let form = document.querySelector('#form-cadastro')
-// let email = document.querySelector('#exampleInputEmail')
-//     let pass = document.querySelector('#exampleInputPassword')
-
-//     form.addEventListener('submit', (event)=>{
-//         event.preventDefault()
-
-//         let dados = {
-//             email: email.value,
-//             password: pass.value
-//         }
-//         // arrayCadastro.push(dados)
-//         console.log(dados)
-//         // console.log(arrayCadastro)
-
-//         fetch('/add-cadastro',{
-//             method: 'POST',
-//             body: JSON.stringify(dados)
-//         })
-//         .then((response)=> {
-//             response
-//         })
-//         .then((data)=> {
-//             console.log(data)
-//         })
-//     })
-
-    // const data = new URLSearchParams(new FormData(document.querySelector('#form-cadastro')))

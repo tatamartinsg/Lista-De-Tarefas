@@ -19,7 +19,7 @@ $pega_button.addEventListener('click',()=>{
             
                 <form action="/login" method="GET" class="form-container " id="form-botao-login">
                 
-                    <h2>Teste 2</h2>
+                    <h2 class="h2-form">Teste 2</h2>
                     <p>Escreva algo aqui!</p>
                     <div class="form-group2">
                         <button class="btn btn-primary btn-block" id="id-botao-login" data-form-button2>Login</button>

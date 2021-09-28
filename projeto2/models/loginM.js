@@ -1,7 +1,7 @@
 const conexao = require('../infraestrutura/conexao')
 
 class Login{
-    verificaLogin(body,res,teste2){
+    verificaLogin(body,res){
         console.log('body recebido:',body)
         const sql_select = `SELECT * FROM cadastroEmail WHERE email = '${body.email}' AND password = '${body.password}';`
         conexao.query(sql_select, (erro,mostraCadastros) => {
@@ -17,16 +17,12 @@ class Login{
                     res.json(loginNaoExiste)
                 }
                 else if (cadastroExiste == 1){
-                    // console.log("Email e senha encontrados, a pessoa pode se logar!")    
-                    // res.json(mostraCadastros)
-                    // res.redirect('tarefas')
+                    console.log("Email e senha encontrados, a pessoa pode se logar!")    
                     res.json(mostraCadastros)
                 }
                 else if (cadastroExiste > 1){
                     console.log("Erro ao logar, possuem dois cadastros iguais!")
                 }
-                // res.end()
-                // res.write(mostraCadastros)
             }
         })
     }

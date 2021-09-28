@@ -12,11 +12,10 @@ class TabelaTarefa{
                 console.log(erro)
             }
             else{
-                console.log("Tabela cadastroTarefas criado com sucesso")
+                console.log("Tabela cadastroTarefas criada com sucesso!")
             }
         })
     }
 }
     
-
 module.exports = new TabelaTarefa

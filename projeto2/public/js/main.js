@@ -1,10 +1,9 @@
-
 const $novaTarefa = document.querySelector('[data-form-button]');
+const $pega_section = document.querySelector('.section-alert')
 var tarefas = [];
 var i = 0
-var incrementos = []
-var incremento = 0
 var contar_clicks = 0
+var j = 0
 
 // =============== Cria o botão concluir ============== //
 const BotaoConcluir = (id) =>{
@@ -16,7 +15,6 @@ const BotaoConcluir = (id) =>{
  }
 
 //============= Criar botao deleta =============//
-
 const BotaoDeletar = (id) => {
     const botaoDeleta = document.createElement('button');
     botaoDeleta.classList.add('delete-button');
@@ -35,18 +33,16 @@ const criarInputTarefa = (valorInput,id) => {
 
     return criarInput
 }
-
-function clicouDeleteButton(evento,id) {
-
+//=========== Deleta Form ao CLicar no Botão!!! ===========//
+function clicouDeleteButton(id) {
     const form = document.querySelector(`.form-ul${id}`)
     form.remove()
-
 }
-var j = 0
+
+//============= Cria A Tarefa =================//
 const criarTarefa = (evento) =>{
     contar_clicks = 0
 
-    
     const $acessar_ul = document.querySelector('[data-ul]');
     const criarForm = document.createElement('form')
     criarForm.classList.add(`form-ul${j}`)
@@ -60,8 +56,7 @@ const criarTarefa = (evento) =>{
     tarefas.push(valorInput)
 
     if(!valorInput|| typeof valorInput == undefined || valorInput == null){
-        alert("Inválido! Tarefa Vazia!")
-
+        return false;
     }
     else{
         document.querySelector('.form1994')
@@ -103,9 +98,8 @@ const criarTarefa = (evento) =>{
             })
         })
 
-        $acessarbotao.addEventListener('click', (evento)=>{clicouDeleteButton(evento,id.value)})
+        $acessarbotao.addEventListener('click', (evento)=>{clicouDeleteButton(id.value)})
         j++
-        incremento++
         let tarefas_listadas = new Array
         if (localStorage.hasOwnProperty("tarefas_listadas")){
             tarefas_listadas = JSON.parse(localStorage.getItem("tarefas_listadas"))

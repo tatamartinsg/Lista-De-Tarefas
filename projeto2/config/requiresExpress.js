@@ -31,6 +31,8 @@ module.exports = () => {
         .include('controllers')
         .into(app)
 
+    return app
+}
     //sessão
     // app.use(session({
     //     cookie: {
@@ -53,5 +55,3 @@ module.exports = () => {
     //     res.locals.error_msg = req.flash("error_msg")
     //     next ()
     // })
-    return app
-}
