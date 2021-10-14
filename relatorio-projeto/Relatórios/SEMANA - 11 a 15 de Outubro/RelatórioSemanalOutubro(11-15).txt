@@ -1,0 +1,20 @@
+        SEGUNDA FEIRA, 11 DE OUTUBRO, VÉSPERA DE FERIADO (DIA DAS CRIANÇAS) - Trabalhei Remotamente
+
+    Estudei mais sobre import e export do javascript puro, tentei realizar alguns testes de exemplo e deu erro de https,
+acredito que precisa de upar o servidor para que o meu objetivo dê certo (de separar os arquivos javascript em vários arquivos, do que deixar em apenas um só,
+exemplo: o arquivo main.js).
+    Melhorei a organização do código (mas não ficou 100%), na parte do backend das tarefas do node e banco de dados.
+
+        TERÇA-FEIRA, 12 DE OUTUBRO - FERIADO DIA DAS CRIANÇAS 
+
+        QUARTA-FEIRA, 13 DE OUTUBRO - FUI À MÉDICA (TENHO ATESTADO)
+
+        QUINTA-FEIRA, 14 DE OUTUBRO - VOLTEI PRA BRAIP
+    Atualizei um pouco o meu github, aprendi comandos como o git clone e o git pull, realizei alguns commits, atualizei os meus arquivos.
+    Organizei um pouco as class do javascript na parte do backend do banco de dados.
+
+    Pretendo ainda (futuramente):
+        Melhorar o código do front;
+        Fazer o projeto do React;
+        Realizar outro projeto (pedir orientação do Matheus);
+        
