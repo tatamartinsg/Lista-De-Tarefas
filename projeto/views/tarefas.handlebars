@@ -1,0 +1,96 @@
+{{#each erros}}
+  <div class="alert alert-danger" role="alert">{{texto}}</div>
+  {{else}}
+{{/each}}
+
+<div class="app">
+    <div class="todo-list">
+      <section class="section-alert"></section>
+      <h1 class="title">Lista de Tarefas</h1>
+      <form class="form1994" id="form-tarefas">
+          <input name="tarefaUM" class="form-input" "all-input" type="text" id="tarefa-input" data-form-input>
+          <button class="form-button" data-form-button> Adicionar Tarefa </button>
+          <input name="id_random" type="hidden" data-form-input-hidden>
+      </form>
+      <ul class="list" data-ul> </ul>
+    </div>   
+</div>
+<script src="/js/main.js"></script>
+<script>
+  var id = "{{ id }}";
+  console.log(id)
+  const formTarefa = document.getElementById('form-tarefas')
+  var a = 0
+  var b = 0
+  const pegaBody = document.querySelector('body')
+  pegaBody.classList.add('oi-body')
+
+formTarefa.addEventListener('submit', function (e) {
+    var contacliq = 0
+    e.preventDefault()
+
+    const $input_tarefa = document.getElementById('tarefa-input')
+    const valorInput = $input_tarefa.value
+
+    console.log($input_tarefa.value)
+    const formDataTarefa = new FormData(this)
+    const searchParamsTarefa = new URLSearchParams()
+                    
+    for (const pair of formDataTarefa){
+        searchParamsTarefa.append(pair[0],pair[1])
+    }
+
+    if(!valorInput|| typeof valorInput == undefined || valorInput == null){
+        function geraAlertSucesso(params) {
+            const cria_div_alert = document.createElement('div')
+            $pega_section.appendChild(cria_div_alert)
+        
+            cria_div_alert.innerHTML = `
+            <div class="alert alert-danger" role="alert">
+                    ${params} <p class="spinner is-animating"></p>
+            </div>`
+            setTimeout(()=>{cria_div_alert.remove()},1000) 
+        }
+        let mensg = 'Tarefa Inválida!'
+        geraAlertSucesso(mensg)
+    }
+    else{
+    fetch(`/tarefas/add-tarefas/${id}`,{
+            method: 'POST',
+            body: searchParamsTarefa
+        }).then(response => response.json()
+            .then(idTarefa => {
+                a = b++
+                console.log("id data:", idTarefa)
+                const $pegabotaoDelete = document.querySelector(`.delete-button${a}`)
+                const $pegabotao = document.querySelector(`.check-button${a}`)
+                const pegaForm = document.querySelector(`.form-ul${a}`)
+                const idtarefa = idTarefa
+                $pegabotao.setAttribute('id', idTarefa)
+               
+
+                $pegabotao.addEventListener('click', (e) => {
+                  const formButton = document.querySelector(`.form-ul${a}`)
+
+                  contacliq += 1
+                  e.preventDefault()                 
+                    fetch(`/status/${idtarefa}/${contacliq}`,{
+                      method: 'GET'
+                    })
+                })
+
+                $pegabotaoDelete.addEventListener('click', (e) => {
+                  const formButton = document.querySelector(`.form-ul${a}`)
+
+                  e.preventDefault()                 
+                    fetch(`/delete/${idtarefa}`,{
+                      method: 'GET'
+                    })
+                })
+              })
+            ) 
+    }
+})
+
+</script>
+<script src="/js/conclui-fetch.js"></script>
