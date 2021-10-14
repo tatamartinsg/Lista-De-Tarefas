@@ -1,0 +1,12 @@
+				Quarta-Feira, 29 de Setembro
+	
+	Ontem, dia 28, terça, comecei a aprender sobre o conceito de SOLID e de POO (Programação Orientada a Objetos), dessa forma, achei muito interessante em como o código pode ser estruturado e construído.
+	Assim, estou querendo melhor a estrutura do código do meu projeto TODOIST.
+	
+	OBJETIVO:.
+		*LIMPAR MAIS AINDA O CÓDIGO E DEIXAR MAIS LEGÍVEL;
+		*ESTUDAR SOBRE POO E SOLID;
+		*ESTUDAR REACT JS;
+		
+	Att:.
+		*FIZ A DOCUMENTAÇÃO DO CÓDIGO DA PARTE DO BACKEND, DEIXANDO ELE MAIS CLARO E LIMPO (ainda falta a parte do front);

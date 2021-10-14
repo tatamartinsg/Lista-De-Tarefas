@@ -1,0 +1,42 @@
+				TERÇA-FEIRA, 21 DE SETEMBRO DE 2021
+	CONSEGUIR ENTENDER A IDEIA DA UTILIZAÇÃO DO "FETCH"
+	ELE BASICAMENTE FAZ A LIGAÇÃO ENTRE O FRONT E O BACKEND (Node, php, etc) POR MÉTODOS E OS QUE UTILIZEI FORAM O GET E O POST.
+	AMBOS FUNCIONAM DE FORMAS DISTINTAS: 
+	*O POST SERVE MAIS PARA QUANDO EU QUERO PASSAR DADOS DE UM FORMULÁRIO DO FRONT PARA O BACKEND
+	*O GET SERVE PARA QUANDO EU QUERO PASSAR DADOS PELA URL
+	
+
+=========================        PARA METHOD: GET    =======================================
+	fetch(`URL QUE EU QUERO DAR O GET`,{
+                        method: 'GET',
+                    }).then (response => {
+                            console.log(response)
+			     ou posso dar simplesmente o response.json()        
+                        })         
+      
+      DESSA FORMA, O FETCH VAI MANDAR UM ESTILO GET PARA ESSA URL LÁ NO NODE (BACKEND), ONDE RECEBEREI OS DADOS PELA REQUISIÇÃO (REQ).             
+                    
+       O FORMATO FETCH COM O METHOD POST É DIFERENTE, POIS POST NORMALMENTE É PROVENIENTE DE UM SUBMIT DE UM FORMULÁRIO, LOGO 
+        
+ =========================        PARA METHOD: POST    =======================================
+        APÓS DAR O addEventListener 'submit' no formulário proveniente do DOM
+        e colocar o alvo do submit como preventDefault() para não dar refresh na página ao 'submitar' os valores do form
+        FAÇA:
+        
+        const formData = new FormData(this)
+        const searchParams = new URLSearchParams()
+    
+        for (const pair of formData){
+            searchParams.append(pair[0],pair[1])
+        }
+
+        fetch('/URL PARA QUAL VC QUER FAZER O POST',{
+            method: 'POST',
+            body: searchParams
+        }).then(response => response.json()
+            .then(data => {
+              	(RECEBE OS DADOS POR 'data')
+                })
+           )
+          
+                    
