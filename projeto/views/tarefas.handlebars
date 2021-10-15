@@ -15,7 +15,7 @@
       <ul class="list" data-ul> </ul>
     </div>   
 </div>
-<script src="/js/main.js"></script>
+<script type="module" src="/js/frontTarefas/main.js"></script>
 <script>
   var id = "{{ id }}";
   console.log(id)
@@ -39,7 +39,7 @@ formTarefa.addEventListener('submit', function (e) {
     for (const pair of formDataTarefa){
         searchParamsTarefa.append(pair[0],pair[1])
     }
-
+  const $pega_section = document.querySelector('.section-alert')
     if(!valorInput|| typeof valorInput == undefined || valorInput == null){
         function geraAlertSucesso(params) {
             const cria_div_alert = document.createElement('div')
@@ -62,8 +62,10 @@ formTarefa.addEventListener('submit', function (e) {
             .then(idTarefa => {
                 a = b++
                 console.log("id data:", idTarefa)
+                console.log('id:',a)
                 const $pegabotaoDelete = document.querySelector(`.delete-button${a}`)
                 const $pegabotao = document.querySelector(`.check-button${a}`)
+                console.log($pegabotao)
                 const pegaForm = document.querySelector(`.form-ul${a}`)
                 const idtarefa = idTarefa
                 $pegabotao.setAttribute('id', idTarefa)

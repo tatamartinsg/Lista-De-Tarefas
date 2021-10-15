@@ -2,9 +2,15 @@ const conexao = require('../infraestrutura/conexao')
 const taskConcluida = require('../bd/mudaStatus/taskConcluida')
 const taskDesfeita = require('../bd/mudaStatus/taskDesfeita')
 
-// const insertCodigoCadastro = require('../bd/addTarefa/insertCodigoCadastro')
 /*   <summary> 
-        class AddTarefas criada para adicionar a tarefa, que foi escrita no input, no banco de dados
+        class TakeTask:
+            insertCodigoCadastro(id_login,body,res) = insere o código id do email logado nas tarefas que esse usuário criou
+            selectLastTaskSent(body,id_login,res) = seleciona o ultimo id inserido na tabela de tarefas (ou seja, a ultima tarefa inserida)
+            updateTarefa(ultimo_id_tarefa,body,id_login,res) = atualiza no banco de dados a ultima tarefa que foi adicionada
+        
+//     @params{body} recebe a requisição da rota post, dessa forma, conseguimos acesso ao input (valor) da tarefa
+//     @params{res} recebe o response da rota post, dessa forma, conseguimos enviar o response.json
+//     @params{id_login} recebe o id referente ao login do usuário
      </summary>
 */
 class TakeTask{
@@ -45,16 +51,6 @@ class TakeTask{
         })
     }
 }
-// /*
-//     a função adicionaTarefaAoBanco insere o id logado (do usuário) nas tarefas que ele criou,
-//     atualiza as tarefas do usuário no banco de dados e sele, e seleciona os ids especificos das
-//     tarefas atualizadas, enviando em formato json
-
-//     @params{body} recebe a requisição da rota post, dessa forma, conseguimos acesso ao input (valor) da tarefa
-//     @params{res} recebe o response da rota post, dessa forma, conseguimos enviar o response.json
-//     @params{id_login} recebe o id referente ao login do usuário
-// */
-
 /*   <summary> 
         class StatusTask criada para atualizar os status da tarefa, que foi clicada, no banco de dados
      </summary>

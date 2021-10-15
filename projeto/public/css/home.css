@@ -41,7 +41,8 @@ h1, p{
     height: 350px;
     border-style: outset;
     margin-top:10%;
-    margin-left: 33%;
+    margin-left: 30%;
+    margin-right: 30%;
 }
 .welcome{
     margin-bottom: 30px;
@@ -60,6 +61,7 @@ h1, p{
     height: auto;
     margin-top: 5%;
     font-size: 25px;
+
 }
 .porfavor{
     font-size: 25px;
