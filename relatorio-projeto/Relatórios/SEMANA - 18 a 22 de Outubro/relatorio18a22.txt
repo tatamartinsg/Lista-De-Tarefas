@@ -1,0 +1,20 @@
+            \\ ===== SEGUNDA-FEIRA , 18 DE OUTUBRO DE 2021 ===== //
+    *Internet da braip caiu e voltei para casa, trabalhei de home office*
+    Em casa:
+         Inicializei tentando fazer uma unica função para a parte do select cadastro, porém mal sucedido.
+         Estudei pelo YouTube novas formas de organizar melhor o código.
+         Criei um outro mini projeto para trabalhar com funções.
+         Estudei um pouco mais sobre React e Bootstrap.
+
+            \\ ===== TERÇA-FEIRA, 19 DE OUTUBRO DE 2021 ===== //
+    Na braip:
+         Mudei novamente a organização do código do backend:
+                - o antigo arquivo "tarefasM.js" não existe mais pois ramifiquei ele em outros arquivos js como o addTask.js, changeStatus.js que estão na pasta './bd'
+                - o antigo arquivo "cadastroM.js" também não existe mais, pois dividi ele em outros arquivos js, como os da pasta 1-verificaCadastro e 2-adicionaCadastro
+        (Gostei muito da nova organização do código!!)
+
+        PRETENDO FAZER FUTURAMENTE:
+               * Mexer no front - parte do media query css;
+               * Mudar get para post (para a url nao poder ser alterada);
+               * Melhorar mais ainda a organização do código;
+               * Inserir a parte de editar tarefa no front e no backend;

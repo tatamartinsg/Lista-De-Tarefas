@@ -22,17 +22,23 @@ h1, p{
     /* text-decoration: underline;
     text-decoration-color: rgba(221, 208, 208, 0.4); */
 }
-.teste2{
+.container-fluid{
     margin-top: 6%;
+}
+.hr-teste{
+    background-color: rgb(255, 255, 255);
 }
 .section-cadastro{
     text-align: center;
     border-style: outset;
     width: auto;
     height: 320px;
+    /* margin-top:10%; */
+    margin-left: 30%;
+    margin-right: 30%;
 }
 .form-all{
-    padding: 22px;
+    padding: 17px;
     border-style: outset;
 }
 .div-div{
