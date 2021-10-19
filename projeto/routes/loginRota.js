@@ -1,4 +1,4 @@
-const LoginM = require('../models/loginM')
+const LoginM = require('../models/login/verificaLogin/verifyLogin.js')
 
 module.exports = app => {
     app.get('/login',(req,res)=>{

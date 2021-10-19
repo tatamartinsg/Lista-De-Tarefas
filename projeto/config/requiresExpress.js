@@ -28,7 +28,7 @@ module.exports = () => {
 
 
     consign() //serve para interligar as rotas que estao em um arquivo js separado!!
-        .include('controllers')
+        .include('routes')
         .into(app)
 
     return app

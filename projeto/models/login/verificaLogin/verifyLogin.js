@@ -1,4 +1,4 @@
-const conexao = require('../infraestrutura/conexao')
+const conexao = require('../../../infraestrutura/conexao.js')
 
 class Login{
     verificaLogin(body,res){

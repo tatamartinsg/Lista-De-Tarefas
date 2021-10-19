@@ -1,4 +1,4 @@
-const conexao = require('../../infraestrutura/conexao')
+const conexao = require('../../../infraestrutura/conexao')
 /*
     Quando o botão concluir é clicado, envia o id (da tarefa) para o back end e dispara a function taskConcluida para o
     status da tarefa ser mudado para "concluido"

@@ -1,4 +1,4 @@
-const conexao = require('../../infraestrutura/conexao')
+const conexao = require('../../../infraestrutura/conexao')
 /*
     Quando o botão concluir é clicado novamente, envia o id (da tarefa clicada) para o back end e dispara a function taskDesfeita para o
     status da tarefa ser mudado para "null"

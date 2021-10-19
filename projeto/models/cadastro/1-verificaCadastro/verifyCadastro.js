@@ -1,5 +1,5 @@
-const conexao = require('../infraestrutura/conexao')
-const adicionaCadastro = require('../bd/adicionaCadastro/adicionaCadastro')
+const conexao = require('../../../infraestrutura/conexao.js')
+const adicionaCadastroAoBanco = require('../2-adicionaCadastro/adicionaCadastroAoBanco.js')
 /*   <summary> 
         class Cadastro serve para verificar se o email já existe e, também, para criar um cadastro e adicionar ao banco de dados
      </summary>
@@ -32,7 +32,7 @@ class Cadastro {
                 }
                 else{
                     console.log("Email sugerido está disponível para ser cadastrado!")
-                    adicionaCadastro(cadastro,res)
+                    adicionaCadastroAoBanco(cadastro,res)
                 }
             }
         })

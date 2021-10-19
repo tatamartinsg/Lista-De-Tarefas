@@ -1,4 +1,4 @@
-const Cadastro = require('../models/cadastroM')
+const Cadastro = require('../models/cadastro/1-verificaCadastro/verifyCadastro.js')
 
 module.exports = app => {
     app.get('/', (req,res)=>{
